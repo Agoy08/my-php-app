@@ -15,7 +15,7 @@ pipeline {
                 echo "Menjalankan composer install (jika composer.json ada)..."
                 script {
                     if (fileExists('composer.json')) {
-                        sh 'composer install'
+                        bat 'composer install'
                     } else {
                         echo "composer.json tidak ditemukan, skip composer"
                     }
@@ -26,9 +26,12 @@ pipeline {
         stage('Run PHPUnit Tests') {
             steps {
                 script {
-                    if (fileExists('vendor/bin/phpunit')) {
+                    if (fileExists('vendor\\bin\\phpunit.bat')) {
                         echo "Menjalankan PHPUnit..."
-                        sh './vendor/bin/phpunit --testdox'
+                        bat 'vendor\\bin\\phpunit.bat --testdox'
+                    } else if (fileExists('vendor\\bin\\phpunit')) {
+                        echo "Menjalankan PHPUnit..."
+                        bat 'vendor\\bin\\phpunit --testdox'
                     } else {
                         echo "PHPUnit tidak ditemukan, skip test"
                     }
