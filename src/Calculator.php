@@ -1,8 +1,11 @@
 <?php
+
 namespace App;
 
-class Calculator {
-    public function add($a, $b) {
+class Calculator
+{
+    public function tambah($a, $b)
+    {
         return $a + $b;
     }
 }
