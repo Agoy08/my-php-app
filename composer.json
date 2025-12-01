@@ -1,5 +1,5 @@
 {
-  "name": "yourname/my-php-app",
+  "name": "agoy/my-php-app",
   "require": {},
   "require-dev": {
     "phpunit/phpunit": "^9.6"
